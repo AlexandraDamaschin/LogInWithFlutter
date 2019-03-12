@@ -54,5 +54,20 @@ class _MyHomePageState extends State<MyHomePage> {
           border:
               OutlineInputBorder(borderRadius: BorderRadius.circular(32.0))),
     );
+
+    final loginButton = Material(
+      elevation: 5.0,
+      borderRadius: BorderRadius.circular(30.0),
+      color: Color(0xff01A0C7),
+      child: MaterialButton(
+        minWidth: MediaQuery.of(context).size.width,
+        padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+        onPressed: () {},
+        child: Text("Login",
+            textAlign: TextAlign.center,
+            style: customStyle.copyWith(
+                color: Colors.white, fontWeight: FontWeight.bold)),
+      ),
+    );
   }
 }
