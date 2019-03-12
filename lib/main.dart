@@ -28,3 +28,25 @@ class MyHomePage extends StatefulWidget {
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
+
+// Define MyHomePage widget state
+class _MyHomePageState extends State<MyHomePage> {
+  TextStyle customStyle = TextStyle(fontFamily: 'Montserrat', fontSize: 20.0);
+
+  @override
+  Widget build(BuildContext context) {
+    final emailField = TextField(
+      obscureText: false,
+      style: customStyle,
+      decoration: InputDecoration(
+          contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+          hintText: 'Email',
+          border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(32.0))),
+    );
+
+
+
+  }
+
+}
