@@ -32,11 +32,13 @@ class MyHomePage extends StatefulWidget {
 // Define MyHomePage widget state
 class _MyHomePageState extends State<MyHomePage> {
   TextStyle customStyle = TextStyle(fontFamily: 'Montserrat', fontSize: 20.0);
+  final myController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    //final =  object value won’t be modified throughout the app
+    // final =  object value won’t be modified throughout the app
     final emailField = TextField(
+      controller: myController,
       obscureText: false,
       style: customStyle,
       decoration: InputDecoration(
@@ -47,8 +49,9 @@ class _MyHomePageState extends State<MyHomePage> {
     );
 
     final passwordField = TextField(
-      //to hide input as we are typing
-      obscureText: true,
+      controller: myController,
+      //to hide input as we are typing set obscureText: true
+      obscureText: false,
       style: customStyle,
       decoration: InputDecoration(
           contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
@@ -64,7 +67,15 @@ class _MyHomePageState extends State<MyHomePage> {
       child: MaterialButton(
         minWidth: MediaQuery.of(context).size.width,
         padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-        onPressed: () {},
+        onPressed: () {
+          return showDialog(
+              context: context,
+              builder: (context) {
+                return AlertDialog(
+                  content: Text(myController.text),
+                );
+              });
+        },
         child: Text("Login",
             textAlign: TextAlign.center,
             style: customStyle.copyWith(
