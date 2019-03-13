@@ -88,7 +88,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
     //All these widgets together inside our Scaffold widget.
     return Scaffold(
-      body: Center(
+      body: SingleChildScrollView(
         child: Container(
           color: Colors.white,
           child: Padding(
