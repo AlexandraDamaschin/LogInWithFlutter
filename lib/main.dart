@@ -34,6 +34,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   TextStyle customStyle = TextStyle(fontFamily: 'Montserrat', fontSize: 20.0);
   final myController = TextEditingController();
+  final myController2 = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
     );
 
     final passwordField = TextField(
-      // controller: myController,
+      controller: myController2,
       //to hide input as we are typing set obscureText: true
       obscureText: false,
       style: customStyle,
@@ -74,7 +75,7 @@ class _MyHomePageState extends State<MyHomePage> {
               context: context,
               builder: (context) {
                 return AlertDialog(
-                  //content: Text(myController.text),
+                  //content: Text(myController2.text),
                   content: Text(response.toString()),
                 );
               });
@@ -128,4 +129,3 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
-

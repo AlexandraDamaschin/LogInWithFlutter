@@ -6,7 +6,9 @@ import 'dart:io';
 String url = 'http://localhost:60000/';
 
 Future<http.Response> fetchPost() {
-  return http.get('https://jsonplaceholder.typicode.com/posts/1');
+  var response= http.get('https://jsonplaceholder.typicode.com/posts/1');
+  print(response);
+  return response;
 }
 
 Future<http.Response> createPost(Post post) async{
