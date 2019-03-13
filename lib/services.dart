@@ -5,15 +5,8 @@ import 'dart:io';
 
 String url = 'http://localhost:60000/';
 
-Future<List<Post>> getAllPosts() async {
-  final response = await http.get(url);
-  print(response.body);
-  return allPostsFromJson(response.body);
-}
-
-Future<Post> getPost() async{
-  final response = await http.get('$url/1');
-  return postFromJson(response.body);
+Future<http.Response> fetchPost() {
+  return http.get('https://jsonplaceholder.typicode.com/posts/1');
 }
 
 Future<http.Response> createPost(Post post) async{

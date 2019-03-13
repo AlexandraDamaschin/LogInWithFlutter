@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:login_app/services.dart';
 
 // Define in order to render something on the screen
 void main() => runApp(MyApp());
@@ -49,7 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
     );
 
     final passwordField = TextField(
-      controller: myController,
+      // controller: myController,
       //to hide input as we are typing set obscureText: true
       obscureText: false,
       style: customStyle,
@@ -68,11 +69,13 @@ class _MyHomePageState extends State<MyHomePage> {
         minWidth: MediaQuery.of(context).size.width,
         padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
         onPressed: () {
+          var response = fetchPost();
           return showDialog(
               context: context,
               builder: (context) {
                 return AlertDialog(
-                  content: Text(myController.text),
+                  //content: Text(myController.text),
+                  content: Text(response.toString()),
                 );
               });
         },
@@ -126,4 +129,3 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-TextStyle style = TextStyle(fontFamily: 'Montserrat', fontSize: 20.0);
