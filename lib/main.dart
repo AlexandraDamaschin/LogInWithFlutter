@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:login_app/services.dart';
+import 'package:http/http.dart' as http;
 
 // Define in order to render something on the screen
 void main() => runApp(MyApp());
@@ -70,7 +71,8 @@ class _MyHomePageState extends State<MyHomePage> {
         minWidth: MediaQuery.of(context).size.width,
         padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
         onPressed: () {
-          var response = fetchPost();
+          var response= http.get('https://jsonplaceholder.typicode.com/posts/1');
+          print(response);
           return showDialog(
               context: context,
               builder: (context) {
