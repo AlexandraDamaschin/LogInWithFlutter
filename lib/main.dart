@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:login_app/services.dart';
-import 'package:http/http.dart' as http;
 
 // Define in order to render something on the screen
 void main() => runApp(MyApp());
@@ -34,14 +33,14 @@ class MyHomePage extends StatefulWidget {
 // Define MyHomePage widget state
 class _MyHomePageState extends State<MyHomePage> {
   TextStyle customStyle = TextStyle(fontFamily: 'Montserrat', fontSize: 20.0);
-  final myController = TextEditingController();
-  final myController2 = TextEditingController();
+  TextEditingController emailController = new TextEditingController();
+  TextEditingController passwordController = new TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     // final =  object value won’t be modified throughout the app
     final emailField = TextField(
-      controller: myController,
+      controller: emailController,
       obscureText: false,
       style: customStyle,
       decoration: InputDecoration(
@@ -52,7 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
     );
 
     final passwordField = TextField(
-      controller: myController2,
+      controller: passwordController,
       //to hide input as we are typing set obscureText: true
       obscureText: false,
       style: customStyle,
@@ -71,12 +70,11 @@ class _MyHomePageState extends State<MyHomePage> {
         minWidth: MediaQuery.of(context).size.width,
         padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
         onPressed: () {
-          var response = fetchPost();
+          var response = fetchPost(emailController.text, passwordController.text);
           return showDialog(
               context: context,
               builder: (context) {
                 return AlertDialog(
-                  //content: Text(myController2.text),
                   content: Text(response.toString()),
                 );
               });
