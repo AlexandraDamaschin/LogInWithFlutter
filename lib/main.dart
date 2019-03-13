@@ -70,7 +70,7 @@ class _MyHomePageState extends State<MyHomePage> {
         minWidth: MediaQuery.of(context).size.width,
         padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
         onPressed: () {
-          var response = fetchPost(emailController.text, passwordController.text);
+          var response = createPost(emailController.text, passwordController.text);
           return showDialog(
               context: context,
               builder: (context) {
