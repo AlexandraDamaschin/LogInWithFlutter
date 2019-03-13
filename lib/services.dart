@@ -21,7 +21,7 @@ Future<String> fetchPost(String name, String password,
 
 Future<Post> createPost(String name, String password,
     {String language: 'ro-RO', String isPersistent: 'false'}) async {
-  String url = 'http://192.168.88.10:60000/api/account';
+  String url = '#';
 
   var body = json.encode({
     'username': name,
@@ -38,7 +38,7 @@ Future<Post> createPost(String name, String password,
   print(response.body);
   final responseJson = json.decode(response.body);
   print(responseJson);
-    if (response.statusCode == 200) {
+  if (response.statusCode == 200) {
     // If server returns an OK response, parse the JSON
     return Post.fromJson(json.decode(responseJson.body));
   } else {
